@@ -1,0 +1,15 @@
+id: sg_pushworkflow
+namespace: zoomcamp
+
+tasks:
+  - id: push_to_git
+    type: io.kestra.plugin.git.PushFlows
+    url: https://github.com/sujatha-gopi/docker-workshop/
+    username: sujatha-gopi
+    password: "{{ secret('GITHUB_ACCESS_TOKEN')}}"
+    branch: main
+    sourceNamespace: zoomcamp
+    flows: "*"
+    gitDirectory: workflow
+    commitMessage: "add flows {{ now() }}"
+    dryRun: false

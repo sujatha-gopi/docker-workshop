@@ -1,11 +1,8 @@
-id: postgres_taxi_etl_scheduled
+id: postgres_taxi_etl
 namespace: zoomcamp
 description: |
   The CSV Data used in the course: |
   https://github.com/DataTalksClub/nyc-tlc-data/releases
-
-concurrency:
-  limit: 1
 
 inputs:
   - id: taxi_type
@@ -14,13 +11,25 @@ inputs:
     defaults: green
     displayName: "Select taxi type"
 
+  - id: year
+    type: SELECT
+    values: ["2019", "2020"]
+    defaults: "2019"
+    displayName: "Select Year"
+
+  - id: month
+    type: SELECT
+    values: ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]
+    defaults: "01"
+    displayName: "Select month"
+
   - id: apiUrl
     type: STRING
     validator: "https://github.com/DataTalksClub/nyc-tlc-data/releases/download"
     defaults: "https://github.com/DataTalksClub/nyc-tlc-data/releases/download"
 
 variables:
-  file: "{{inputs.taxi_type}}_tripdata_{{trigger.date | date('yyyy-MM')}}.csv.gz"
+  file: "{{ inputs.taxi_type }}_tripdata_{{ inputs.year }}-{{ inputs.month }}.csv.gz"
   staging_table: "public.{{inputs.taxi_type}}_staging_table"
   data: "{{ outputs.extract.uri }}"
   table: "public.{{inputs.taxi_type}}_tripdata"
@@ -39,6 +48,14 @@ tasks:
     type: io.kestra.plugin.compress.FileDecompress
     from: "{{ outputs.extract.uri }}" # URI of your .gz file
     compression: GZIP
+
+  - id: get_file_size
+    type: io.kestra.plugin.core.storage.Size
+    uri: "{{ outputs.unzip_data.uri }}"  # Reference your uncompressed CSV URI
+  
+  - id: log_file_size
+    type: io.kestra.plugin.core.log.Log
+    message: "{{ outputs.get_file_size.size / 1024 / 1024 }}"
 
   - id: if_green_taxi
     type: io.kestra.plugin.core.flow.If
@@ -269,15 +286,3 @@ pluginDefaults:
       username: root
       password: root
 
-triggers:
-  - id: green_schedule
-    type: io.kestra.plugin.core.trigger.Schedule
-    cron: "0 9 1 * *"
-    inputs:
-      taxi: green
-
-  - id: yellow_schedule
-    type: io.kestra.plugin.core.trigger.Schedule
-    cron: "0 10 1 * *"
-    inputs:
-      taxi: yellow
