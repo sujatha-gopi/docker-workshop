@@ -8,6 +8,7 @@ __pycache__/
 
 *.parquet
 *.json
+*.env
 
 # Distribution / packaging
 .Python
