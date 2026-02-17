@@ -1,0 +1,83 @@
+user:
+  outputs:
+    default:
+      keyfile_json:
+        auth_provider_x509_cert_url: https://www.googleapis.com/oauth2/v1/certs
+        auth_uri: https://accounts.google.com/o/oauth2/auth
+        client_email: de-course-service@mythic-altar-485103-v8.iam.gserviceaccount.com
+        client_id: '115888975803491159880'
+        client_x509_cert_url: https://www.googleapis.com/robot/v1/metadata/x509/de-course-service%40mythic-altar-485103-v8.iam.gserviceaccount.com
+        private_key: '-----BEGIN PRIVATE KEY-----
+
+          MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCrEEr6uW3gKhBH
+
+          L9oHNSeL9bh5X7wh9CTXdokxpL4WvtoJFgMfPnKWMmNnfp3gOX3ZZHgvT4CrN9gN
+
+          /t7COkfdjUGFODv8c2qMP3sHgh9Zf+SsQTo/7kO+yatZdRssSCKzqeIzaWvCF4Sb
+
+          3y95vzGdUIkT/rX5w9inxE7dyc8SXFQXuUoa+Ga6DclH4lBWoPnLdmWOvF7PDPg1
+
+          P2ZDbkmnp7fmxSSoXXKKbFQXvsMnIh7Jb45dulQkhjw7tcm8hWUAuuuGtWgwLrWF
+
+          W/mPdAo+fWNZLpNd/lCEuFMaG8KlvGoIdmwXeua8Tu4qjo8zxlGJ/MR04UBisBFR
+
+          Dqycqi9XAgMBAAECggEAGK2Qi4wdqEWZNJPYKcsGyf+oXcYsX1+XwwekMie4jpJ4
+
+          5O+qgqLhJ/7b7U3MW9EfcTG3zudywgCb6CT5IN8EiBc9OQlMShaia9oqlwI0IJa9
+
+          OAZu71Mhrc/tKsokoeZEL1QWQGF4fLck19HCSReGglHgfKR1vzL8OfOthvx6pYS0
+
+          74rxrOoKRF5UvQV4GYYEOOxLSrbLF2qvH6UAxYfpJBRpJ/jYdkoKF9ButIucLigt
+
+          cNVV8j1iNuoQLtNCo7I8GrI0KPVH5pAtnuLYwzkscGWLimSqtjrqB054F1vDp3mY
+
+          BowRZOkrGp+U0hRo18InL06AEcmEDKCdzS+SvuL3OQKBgQDU8rvRB5y0z4OR0Xxa
+
+          hhDQaTC1tPlqKJFmCcnjgzn9kSEsef4rqUwrVWo353YDNp64mAfvEaTiR162zvFE
+
+          eUP2El6g88N4lpLWbcqaDqE4Ff+AuLbHnV4kqr0iL9nPUf3CM6hzOImwI1WPtdUI
+
+          uX7HQAupSLW+Ft3amwkOJZdvvwKBgQDNpcyGeBQ4Xqg+AW7u17HdrZYq6mXpH5PN
+
+          yNdJyxWWUertKac2ifIWrOedXDw4c8XsxAGIwOYWl7UvihtwWMx+MN3wrH5t1mUM
+
+          igYA4WwxytwWiQN7y/Q5mcSeuxD0SCmfnAxtTYJ7M/HQ5Iv065/FteSdCjMRYYhP
+
+          DwOahskmaQKBgACMk7FpTJ0mv9cbbC+rktWGv+poChCdBCr4MX4Vs4uU2ToNInuo
+
+          VxrxgHGedi5x8JzXP4X9TKiMuJDOHc8oZOV4jKfrmQBxmvVUmSYmjYHghKUnVMlU
+
+          /Y4opo41A2HGe1oJ2hBZ//jlTm4tcNwx5kLLRnxsRJO16WKL7c0MicRvAoGBAIFr
+
+          Qlet4ivHhmHfTQ0KuWklAUho01HvCXmMV9Cc+izryMkQWac9ERmsHuctUMjGM11Z
+
+          zQ1fOG4nc2NDqxj9CVSxNDtukvJU5qsJgdW0B/8eB3w3JfYW2NAXMWIjn/vcHjXQ
+
+          YxG2odMfUaOA8YNlddtbKVCbRqA9nScD7+SjxpthAoGBAJugtpFZgrLB4ulf4Dgp
+
+          kfSEHdyrEJD4vMDKgtGPzCtwWGpODU9KuwvmQl7RCAUdNKXjb6B6zpuaHpX2dIrL
+
+          pnEhtO0RfvP8u8CJLOMsx6B+TTKiiqmOEW/Dq7RABLkH+NpylgQ5ClHI2dB3BFeG
+
+          g2ZthoCLTUcO0RJiRaO/f66g
+
+          -----END PRIVATE KEY-----
+
+          '
+        private_key_id: 5334b56f55246f12f0fb4ca3420a0867b40eedd8
+        project_id: mythic-altar-485103-v8
+        token_uri: https://oauth2.googleapis.com/token
+        type: service_account
+      location: us-central1
+      method: service-account-json
+      project: mythic-altar-485103-v8
+      schema: dbt_sgopi_dev
+      scopes:
+      - https://www.googleapis.com/auth/bigquery
+      - https://www.googleapis.com/auth/cloud-platform
+      - https://www.googleapis.com/auth/drive
+      - https://www.googleapis.com/auth/userinfo.email
+      target_name: default
+      threads: 4
+      type: bigquery
+  target: default
