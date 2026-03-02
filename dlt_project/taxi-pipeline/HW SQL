@@ -1,0 +1,26 @@
+>>> con.sql("SELECT MIN(trip_pickup_date_time) AS min_date, MAX(trip_pickup
+_date_time) AS max_date FROM taxi_data.taxi_trips").show()
+┌──────────────────────────┬──────────────────────────┐
+│         min_date         │         max_date         │
+│ timestamp with time zone │ timestamp with time zone │
+├──────────────────────────┼──────────────────────────┤
+│ 2009-06-01 11:33:00+00   │ 2009-06-30 23:58:00+00   │
+└──────────────────────────┴──────────────────────────┘
+
+>>> con.sql("SELECT ROUND(100.0 * SUM(CASE WHEN payment_type = 'Credit' THE
+N 1 ELSE 0 END) / COUNT(*),2) AS credit_percentage FROM taxi_data.taxi_trip
+s").show()
+┌───────────────────┐
+│ credit_percentage │
+│      double       │
+├───────────────────┤
+│             26.66 │
+└───────────────────┘
+
+>>> con.sql("SELECT ROUND(SUM(tip_amt), 2) AS total_tips FROM taxi_data.taxi_trips").show()
+┌────────────┐
+│ total_tips │
+│   double   │
+├────────────┤
+│    6063.41 │
+└────────────┘
